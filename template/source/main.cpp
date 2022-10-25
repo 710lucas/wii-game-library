@@ -52,6 +52,12 @@ int main(int argc, char **argv) {
             vely *= -1;
         }
 
+        if(rec.clicked(g)){
+            rec.set_color(0xff0000ff);
+        }
+        else
+            rec.set_color(0x0000ffff);
+
         // GRRLIB_DrawImg(g.ir1.x, g.ir1.y, ponteiro.get_img(), 0, 0.25, 0.25, 0xffffffff);
         ponteiro.render(g.ir1.x, g.ir1.y);
         fnaf.render();

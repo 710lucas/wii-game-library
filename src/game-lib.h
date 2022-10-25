@@ -29,10 +29,13 @@ class Rectangle{
         float get_w();
         void set_h(float h);
         void set_w(float w);
+        void set_color(u32 col);
 
         void render();
 
         void move(float x, float y);
+
+        bool clicked(Game game);
 
     private:
         float width = 10;

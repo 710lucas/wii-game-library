@@ -59,6 +59,10 @@ void Rectangle::set_w(float w){
     width = w;
 }
 
+void Rectangle::set_color(u32 col){
+    color = col;
+}
+
 void Rectangle::render(){
     GRRLIB_Rectangle(position.x, position.y, width, height, color, filled);
 }
@@ -66,6 +70,12 @@ void Rectangle::render(){
 void Rectangle::move(float x, float y){
     position.x += x;
     position.y -= y;
+}
+
+bool Rectangle::clicked(Game game){
+    if(game.ir1.x > position.x && game.ir1.x < position.x+width && game.ir1.y > position.y && game.ir1.y < position.y+height && game.wiimote_pressed(WPAD_BUTTON_A))
+        return true;
+    return false;
 }
 
 Image::Image(const u8 * image){

@@ -25,3 +25,7 @@ As I said, it's just an idea, don't expect it to be perfect of even to be finish
     - And in the line 22, specifying where the files are included from
 
 Idk if it's a good explanation, so feel free to change it and keep in mind that this is a really new project that's still WIP.
+
+# Documentation
+
+### You can check the [wiki page](https://github.com/Luxs710/wii-game-library/wiki)

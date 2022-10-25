@@ -21,7 +21,6 @@ int main(int argc, char **argv) {
     Game g;
     g.init();
 
-    // GRRLIB_texImg *ponteiro = GRRLIB_LoadTexture(cursor_png);
     ImageTexture ponteiro(cursor_png);
     GRRLIB_ttfFont *roboto = GRRLIB_LoadTTF(Roboto_ttf, Roboto_ttf_size);
 
@@ -36,9 +35,11 @@ int main(int argc, char **argv) {
 
 
         // If [PLUS] was pressed on the first Wiimote, break out of the loop
-        if (WPAD_ButtonsDown(0) & WPAD_BUTTON_PLUS)  break;
 
-        GRRLIB_Rectangle(288, 156, 7, 169, 0x147878FF, true); 
+        // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;
+        if(g.wiimote_pressed(WPAD_BUTTON_HOME)) break;
+
+
         rec.render();
         rec.move(velx, vely);
         if(rec.get_pos().x >= 640-rec.get_w() || rec.get_pos().x<0 ){

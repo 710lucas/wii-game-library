@@ -6,6 +6,7 @@ class Game{
     public:
         void init();
         void update_wiimote();
+        bool wiimote_pressed(ubyte button);
         ir_t ir1;
         u32 wpaddown, wpadheld;
     private:
@@ -39,4 +40,14 @@ class Rectangle{
         u32 color = 0xff00ffff;
         bool filled;
         pos position;
+};
+
+class ImageTexture{
+    public:
+        ImageTexture(const u8 * image);
+
+        const GRRLIB_texImg *get_img();
+    private:
+        GRRLIB_texImg *texture;
+
 };

@@ -19,6 +19,11 @@ void Game::update_wiimote(){
 }
 
 
+bool Game::wiimote_pressed(ubyte button){
+    if (wpaddown & button) return true;
+    return false;
+}
+
 pos Rectangle::get_pos() {
     return position;
 }
@@ -61,4 +66,13 @@ void Rectangle::render(){
 void Rectangle::move(float x, float y){
     position.x += x;
     position.y -= y;
+}
+
+ImageTexture::ImageTexture(const u8 * image){
+    GRRLIB_texImg *a = GRRLIB_LoadTexture(image);
+    texture = a;
+}
+
+const GRRLIB_texImg * ImageTexture::get_img(){
+    return texture;
 }

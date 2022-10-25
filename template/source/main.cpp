@@ -15,13 +15,16 @@
 
 #include "Roboto_ttf.h"
 #include "cursor_png.h"
+#include "fnaf_test_png.h"
 
 int main(int argc, char **argv) {
 
     Game g;
     g.init();
 
-    ImageTexture ponteiro(cursor_png);
+    Image ponteiro(cursor_png);
+    ponteiro.set_scale(0.25, 0.25);
+    Image fnaf(fnaf_test_png, 100, 200);
     GRRLIB_ttfFont *roboto = GRRLIB_LoadTTF(Roboto_ttf, Roboto_ttf_size);
 
     Rectangle rec(100, 20, 100, 200, 0x00ff00ff, true);
@@ -49,7 +52,9 @@ int main(int argc, char **argv) {
             vely *= -1;
         }
 
-        GRRLIB_DrawImg(g.ir1.x, g.ir1.y, ponteiro.get_img(), 0, 0.25, 0.25, 0xffffffff);
+        // GRRLIB_DrawImg(g.ir1.x, g.ir1.y, ponteiro.get_img(), 0, 0.25, 0.25, 0xffffffff);
+        ponteiro.render(g.ir1.x, g.ir1.y);
+        fnaf.render();
 
         GRRLIB_Render();  // Render the frame buffer to the TV
     }

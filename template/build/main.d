@@ -69,7 +69,8 @@ main.o: /home/eu/Projetos/wii-game-library/template/source/main.cpp \
  /opt/devkitpro/libogc/include/bte/bd_addr.h \
  /home/eu/Projetos/wii-game-library/template/../src/game-lib.h \
  /home/eu/Projetos/wii-game-library/template/build/Roboto_ttf.h \
- /home/eu/Projetos/wii-game-library/template/build/cursor_png.h
+ /home/eu/Projetos/wii-game-library/template/build/cursor_png.h \
+ /home/eu/Projetos/wii-game-library/template/build/fnaf_test_png.h
 /opt/devkitpro/portlibs/wii/include/grrlib.h:
 /opt/devkitpro/libogc/include/gccore.h:
 /opt/devkitpro/libogc/include/ogc/dsp.h:
@@ -141,3 +142,4 @@ main.o: /home/eu/Projetos/wii-game-library/template/source/main.cpp \
 /home/eu/Projetos/wii-game-library/template/../src/game-lib.h:
 /home/eu/Projetos/wii-game-library/template/build/Roboto_ttf.h:
 /home/eu/Projetos/wii-game-library/template/build/cursor_png.h:
+/home/eu/Projetos/wii-game-library/template/build/fnaf_test_png.h:

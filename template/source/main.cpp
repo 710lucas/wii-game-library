@@ -10,6 +10,7 @@
 #include <wiiuse/wpad.h>
 #include <time.h>
 
+
 #include"game-lib.h"
 
 #include "Roboto_ttf.h"
@@ -20,10 +21,13 @@ int main(int argc, char **argv) {
     Game g;
     g.init();
 
-    GRRLIB_texImg *ponteiro = GRRLIB_LoadTexture(cursor_png);
+    // GRRLIB_texImg *ponteiro = GRRLIB_LoadTexture(cursor_png);
+    ImageTexture ponteiro(cursor_png);
     GRRLIB_ttfFont *roboto = GRRLIB_LoadTTF(Roboto_ttf, Roboto_ttf_size);
 
     Rectangle rec(100, 20, 100, 200, 0x00ff00ff, true);
+    int velx = 2;
+    int vely = -2;
 
     // Loop forever
     while(1) {
@@ -36,9 +40,15 @@ int main(int argc, char **argv) {
 
         GRRLIB_Rectangle(288, 156, 7, 169, 0x147878FF, true); 
         rec.render();
-        rec.move(1, 1);
+        rec.move(velx, vely);
+        if(rec.get_pos().x >= 640-rec.get_w() || rec.get_pos().x<0 ){
+            velx *= -1;
+        }
+        if(rec.get_pos().y>=480-rec.get_h() || rec.get_pos().y<0){
+            vely *= -1;
+        }
 
-        GRRLIB_DrawImg(g.ir1.x, g.ir1.y, ponteiro, 0, 0.25, 0.25, 0xffffffff);
+        GRRLIB_DrawImg(g.ir1.x, g.ir1.y, ponteiro.get_img(), 0, 0.25, 0.25, 0xffffffff);
 
         GRRLIB_Render();  // Render the frame buffer to the TV
     }

@@ -1,6 +1,7 @@
 #pragma once
 #include <grrlib.h>
 #include <wiiuse/wpad.h>
+#include <iostream>
 
 class Game{
     public:
@@ -37,6 +38,8 @@ class Rectangle{
 
         bool clicked(Game game);
 
+        bool is_coliding(Rectangle rec);
+
     private:
         float width = 10;
         float height = 10;
@@ -72,3 +75,44 @@ class Image{
         float rotation = 0;
         u32 color = 0xffffffff;
 };
+
+class Text{
+    public:
+        Text(const u8* file_base, s32 file_size);
+        void print(const char* str);
+        void print();
+        void print(const char* str, int x, int y, int font_size, u32 color);
+        void print(int x, int y, int font_size, u32 color);
+        void print(const char* str, int x, int y);
+
+        void set_content(const char* inp);
+        void set_pos(int x, int y);
+        void set_font_size(int f_size);
+        void set_color(u32 col);
+
+        const char* get_content();
+        pos get_pos();
+        int get_font_size();
+        u32 get_color();
+
+    private:
+        const char* content;
+        pos position;
+        int font_size;
+        u32 color;
+        GRRLIB_ttfFont *fonte;
+};
+
+/*
+ideia de tilmeap
+Tile tilemap = {
+    {1, 1, 0},
+    {1, 1, 1}
+}
+
+desenha tipo:
+
+==_
+===
+
+*/

@@ -23,3 +23,15 @@ bool Game::wiimote_pressed(ubyte button){
     if (wpaddown & button) return true;
     return false;
 }
+bool Game::wiimote_pressed(int button){
+    if (wpaddown & button) return true;
+    return false;
+}
+bool Game::wiimote_hold(int button){
+    if (wpadheld & button) return true;
+    return false;
+}
+bool Game::wiimote_hold(ubyte button){
+    if (wpadheld & button) return true;
+    return false;
+}

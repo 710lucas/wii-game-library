@@ -18,7 +18,7 @@
 #include "cursor_png.h"
 #include "fnaf_test_png.h"
 
-int main(int argc, char **argv) {
+int lelmain(int argc, char **argv) {
 
     Game g;
     g.init();

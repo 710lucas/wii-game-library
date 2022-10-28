@@ -9,6 +9,9 @@ class Game{
         void init();
         void update_wiimote();
         bool wiimote_pressed(ubyte button);
+        bool wiimote_pressed(int button);
+        bool wiimote_hold(int button);
+        bool wiimote_hold(ubyte button);
         ir_t ir1;
         u32 wpaddown, wpadheld;
     private:
@@ -122,6 +125,23 @@ class Circle : public Element{
         void render();
     private:
         f32 radius;
+};
+
+class Button : public Rectangle{
+    public:
+        Button(std::string label, int x, int y, u32 color);
+        std::string get_label();
+        std::string get_alignment();
+        std::string get_text_alignment();
+
+        void set_label(std::string lab);
+        void set_alignment(std::string al);
+        void set_text_alignment(std::string al);
+        void render_button();
+    private:
+        std::string label;
+        std::string alignment = "center";
+        std::string text_align = "center";
 };
 
 class Tilemap{

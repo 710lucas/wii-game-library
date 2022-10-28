@@ -2,6 +2,7 @@
 #include <grrlib.h>
 #include <wiiuse/wpad.h>
 #include <iostream>
+#include <vector>
 
 class Game{
     public:
@@ -19,33 +20,43 @@ class pos{
         float y;
 };
 
-class Rectangle{
+class Element{
+    public:
+        pos get_pos();
+        u32 get_color();
+        bool get_filled();
+
+        void set_pos(int x, int y);
+        void set_color(u32 col);
+        void set_filled(bool fil);
+
+        void move(int x, int y);
+    private:
+        pos position;
+        u32 color;
+        bool filled;
+};
+
+class Rectangle : public Element{
     public:
         Rectangle(float x, float y, float h, float w, u32 _color, bool _filled);
         Rectangle();
-        pos get_pos();
-        void set_pos(float x, float y);
 
         float get_h();
         float get_w();
         void set_h(float h);
         void set_w(float w);
-        void set_color(u32 col);
 
         void render();
 
-        void move(float x, float y);
 
         bool clicked(Game game);
 
-        bool is_coliding(Rectangle rec);
+        bool is_colliding(Rectangle rec);
 
     private:
         float width = 10;
         float height = 10;
-        u32 color = 0xff00ffff;
-        bool filled;
-        pos position;
 };
 
 class Image{
@@ -63,10 +74,11 @@ class Image{
         void set_color(u32 col);
         void move(float x, float y);
 
+
         pos get_pos();
         pos get_scale();
         float get_rotation();
-
+        Rectangle get_rec();
         const GRRLIB_texImg *get_img();
     private:
         GRRLIB_texImg *texture;
@@ -74,6 +86,7 @@ class Image{
         pos scale = {1, 1};
         float rotation = 0;
         u32 color = 0xffffffff;
+        Rectangle rec;
 };
 
 class Text{
@@ -101,6 +114,42 @@ class Text{
         int font_size;
         u32 color;
         GRRLIB_ttfFont *fonte;
+};
+
+class Circle : public Element{
+    public:
+        Circle(int x, int y, f32 rad, u32 color, bool filled);
+        void render();
+    private:
+        f32 radius;
+};
+
+class Tilemap{
+    public:
+        Tilemap(std::vector<std::vector<int>> m);
+        Tilemap();
+
+        void define(int n, Image im);
+
+        std::vector<std::vector<int>> get_map();
+
+    private:
+        std::vector<std::vector<int>> map;
+        pos division = {1, 1}; 
+        std::vector<Image> textures;
+        std::vector<int> textures_index;
+        //define em quantas tiles vai dividir o tabuleiro
+
+        //quero algo tipo
+        // int map[3][3] = {
+        // {1, 0, 2},
+        // {1, 0, 1},
+        // {1, 2, 1}
+        //};
+        //Tilemap tile(map);
+        // cada numero corresponde a uma imagem diferente
+        // Image fnaf(fnaf_test_png)
+        // tile.define(1, fnaf)
 };
 
 /*

@@ -90,7 +90,6 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES), -iquote $(CURDIR)/$(dir)) \
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 					-I$(CURDIR)/$(BUILD) \
 					-I$(LIBOGC_INC)
-
 #---------------------------------------------------------------------------------
 # build a list of library paths
 #---------------------------------------------------------------------------------
@@ -103,6 +102,7 @@ export OUTPUT	:=	$(CURDIR)/$(TARGET)
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+	@ echo $(INCLUDE)
 
 #---------------------------------------------------------------------------------
 clean:

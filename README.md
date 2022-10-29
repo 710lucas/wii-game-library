@@ -4,28 +4,41 @@ Hi! This is still an idea, but I'll try to make like a library that can be used 
 
 As I said, it's just an idea, don't expect it to be perfect of even to be finished
 
+## Disclaimer
+
+I wrote this in a hurry, this is going to improve in the future
+
 # How to use it
 
-## 1 - Download the important files
+## 0 - Requirements
 
-- You can clone the repository and edit the main.cpp file located inside the source folder in the template folder
+You'll need Devkitpro and GRRLIB installed
 
-## 2 - Compile
+[Click here to install devkitpro](https://devkitpro.org/wiki/Getting_Started)
 
-- After editing the main file, you can just use the make command and the program will compile normally
+[Click here to install GRRLIB](https://github.com/GRRLIB/GRRLIB)
 
-## 3 - Using without the template folder and files
+The only important files are inside the src/ folder, you can copy them to the source/folder that comes with the template provided by GRRLIB
 
-- In order to use this library in any file, you'll need to copy the game-lib.cpp and game-lib.h files into the directory that you're using to compile the main cpp files
 
-- Or you can mannually specify in the Makefile where the files are located and where to compile them
+## 1 - Clone the repo
 
-    -  Those changes can be made in the line 20 of the template's Makefile, adding a second path
+For instance, this is the best way to start with something simple, since the makefile is configured with those folders
 
-    - And in the line 22, specifying where the files are included from
+If you want, you can just copy every .cpp and .h file inside the src/ folder to your source/ folder, that comes in the GRRLIB template 
 
-Idk if it's a good explanation, so feel free to change it and keep in mind that this is a really new project that's still WIP.
+## 2 - Code!
 
-# Documentation
+You can [check our documentation](https://github.com/Luxs710/wii-game-library/wiki) to know more about each function
 
-### You can check the [wiki page](https://github.com/Luxs710/wii-game-library/wiki)
+or you can see some examples, inside the template/ folder
+
+joguin.cpp is a brick breaker
+
+main.cpp are just some tests 
+
+## 3 - Compiling
+
+To compile, just go inside the template/ folder and execute the ```make``` command
+
+then, you can execute the template.dol file in your wii or on dolphin

@@ -25,8 +25,8 @@ Image::Image(const u8 * image, float px, float py, float sx, float sy, float _ro
     scale.x = sx;
     scale.y = sy;
     color = _color;
-    rec.set_h(sy);
-    rec.set_w(sx);
+    rec.set_h(texture->h*sx);
+    rec.set_w(texture->w*sy);
 }
 
 void Image::set_pos(float px, float py){
@@ -51,7 +51,7 @@ void Image::set_color(u32 col){
 void Image::move(float x, float y){
     position.x += x;
     position.y -= y;
-    rec.move(x, y);
+    rec.set_pos(position.x, position.y);
 }
 
 pos Image::get_pos(){ 

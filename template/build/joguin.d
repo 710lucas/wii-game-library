@@ -68,7 +68,8 @@ joguin.o: /home/eu/Projetos/wii-game-library/template/source/joguin.cpp \
  /opt/devkitpro/libogc/include/wiiuse/wiiuse.h \
  /opt/devkitpro/libogc/include/bte/bte.h \
  /opt/devkitpro/libogc/include/bte/bd_addr.h \
- /home/eu/Projetos/wii-game-library/template/build/fnaf_test_png.h
+ /home/eu/Projetos/wii-game-library/template/build/fnaf_test_png.h \
+ /home/eu/Projetos/wii-game-library/template/build/Roboto_ttf.h
 /home/eu/Projetos/wii-game-library/template/../src/game-lib.h:
 /opt/devkitpro/portlibs/wii/include/grrlib.h:
 /opt/devkitpro/libogc/include/gccore.h:
@@ -139,3 +140,4 @@ joguin.o: /home/eu/Projetos/wii-game-library/template/source/joguin.cpp \
 /opt/devkitpro/libogc/include/bte/bte.h:
 /opt/devkitpro/libogc/include/bte/bd_addr.h:
 /home/eu/Projetos/wii-game-library/template/build/fnaf_test_png.h:
+/home/eu/Projetos/wii-game-library/template/build/Roboto_ttf.h:

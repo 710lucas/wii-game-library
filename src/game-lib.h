@@ -19,8 +19,8 @@ class Game{
 
 class pos{
     public:
-        float x;
-        float y;
+        float x = 0;
+        float y = 0;
 };
 
 class Element{
@@ -36,8 +36,8 @@ class Element{
         void move(int x, int y);
     private:
         pos position;
-        u32 color;
-        bool filled;
+        u32 color = 0x000000ff;
+        bool filled = true;
 };
 
 class Rectangle : public Element{

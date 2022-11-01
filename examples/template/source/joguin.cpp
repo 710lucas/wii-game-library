@@ -43,7 +43,10 @@ int main(){
     bool ball_launched = false;
     int vel_x = 7, vel_y = 7;
 
+
     while(1){
+
+
         game.update_wiimote();
 
         if(game.wiimote_pressed(WPAD_BUTTON_HOME)) break;

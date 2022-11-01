@@ -68,9 +68,9 @@ const GRRLIB_texImg * Image::get_img(){
     return texture;
 }
 
-void Image::render(){
+void Image::draw(){
     GRRLIB_DrawImg(position.x, position.y, texture, rotation, scale.x, scale.y, color);
 }
-void Image::render(float px, float py){
+void Image::draw(float px, float py){
     GRRLIB_DrawImg(px, py, texture, rotation, scale.x, scale.y, color);
 }

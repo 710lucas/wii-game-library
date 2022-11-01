@@ -12,6 +12,7 @@ class Game{
         bool wiimote_pressed(int button);
         bool wiimote_hold(int button);
         bool wiimote_hold(ubyte button);
+        void render();
         ir_t ir1;
         u32 wpaddown, wpadheld;
     private:
@@ -36,8 +37,8 @@ class Element{
         void move(int x, int y);
     private:
         pos position;
-        u32 color;
-        bool filled;
+        u32 color = 0x000000ff;
+        bool filled = true;
 };
 
 class Rectangle : public Element{

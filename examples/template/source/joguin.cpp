@@ -65,7 +65,7 @@ int main(){
             ball_launched = true;
 
         for(int i  = 0; i<rectangles.size(); i++){
-            rectangles[i].render();
+            rectangles[i].draw();
             if(rectangles[i].is_colliding(ball)){
                 vel_y*=-1;
                 if (rectangles[i].side_collision(ball))
@@ -93,10 +93,9 @@ int main(){
             generate();
 
         fonte.print(std::to_string(tamanho).c_str());
-        player.render();
-        ball.render();
+        player.draw();
+        ball.draw();
 
-
-        GRRLIB_Render();
+        game.render();
     }
 }

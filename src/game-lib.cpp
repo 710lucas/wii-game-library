@@ -35,3 +35,7 @@ bool Game::wiimote_hold(ubyte button){
     if (wpadheld & button) return true;
     return false;
 }
+
+void Game::render(){
+    GRRLIB_Render();
+}

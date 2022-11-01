@@ -12,6 +12,7 @@ class Game{
         bool wiimote_pressed(int button);
         bool wiimote_hold(int button);
         bool wiimote_hold(ubyte button);
+        void render();
         ir_t ir1;
         u32 wpaddown, wpadheld;
     private:
@@ -50,7 +51,7 @@ class Rectangle : public Element{
         void set_h(float h);
         void set_w(float w);
 
-        void render();
+        void draw();
 
 
         bool clicked(Game game);
@@ -70,8 +71,8 @@ class Image{
         Image(const u8 * image, float px, float py);
         Image(const u8 * imagem, float px, float py, float h, float w, float rotation, u32 _color);
         
-        void render();
-        void render(float px, float py);
+        void draw();
+        void draw(float px, float py);
 
         void set_pos(float px, float py);
         void set_scale(float x, float y);
@@ -124,7 +125,7 @@ class Text{
 class Circle : public Element{
     public:
         Circle(int x, int y, f32 rad, u32 color, bool filled);
-        void render();
+        void draw();
     private:
         f32 radius;
 };
@@ -139,7 +140,7 @@ class Button : public Rectangle{
         void set_label(std::string lab);
         void set_alignment(std::string al);
         void set_text_alignment(std::string al);
-        void render_button();
+        void draw_button();
     private:
         std::string label;
         std::string alignment = "center";

@@ -30,7 +30,7 @@ void Button::set_text_alignment(std::string al){
     text_align = al;
 }
 
-void Button::render_button(){
+void Button::draw_button(){
     render();
     //renderizar texto 
 }

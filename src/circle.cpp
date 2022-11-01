@@ -8,6 +8,6 @@ Circle::Circle(int x, int y, f32 rad, u32 _color, bool _filled){
 }
 
 
-void Circle::render(){
+void Circle::draw(){
     GRRLIB_Circle(get_pos().x, get_pos().y, radius, get_color(), get_filled());
 }

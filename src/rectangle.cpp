@@ -39,7 +39,7 @@ void Rectangle::set_w(float w){
 //     color = col;
 // }
 
-void Rectangle::render(){
+void Rectangle::draw(){
     GRRLIB_Rectangle(get_pos().x, get_pos().y, width, height, get_color(), get_filled());
 }
 

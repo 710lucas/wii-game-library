@@ -84,16 +84,14 @@ bool Rectangle::side_collision(Rectangle rec){
     float rh = rec.get_h();
     pos p = get_pos();
 
-    if (
-        (p.x == rpos.x and
+    if  ((p.x == rpos.x and
         rpos.y >= p.y and 
         rpos.y + rh <= p.y+height)
         or
         (p.x+width == rpos.x+rw and
         rpos.y >= p.y and 
         rpos.y + rh <= p.y+height
-        )
-    ){
+        )){
         return true;
     }
     return false;

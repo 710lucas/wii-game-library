@@ -19,6 +19,15 @@ void VisualElement::setFilled(bool filled){
 	this.filled = filled;
 }
 
+void VisualElement::move(float amountX, float amountY){
+	this.pos.x += amountX;
+	this.pos.y += amountY;
+}
+
+void VisualElement::move(position amount){
+	move(amount.x, amount.y);
+}
+
 
 position VisualElement::getPosition(){return pos;}
 u32 VisualElement::getColor(){return color;}

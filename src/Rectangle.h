@@ -11,8 +11,6 @@ class Rectangle : public VisualElement{
 		void Rectangle();
 		void Rectangle(position pos, sizeStruct	size, u32 color, bool filled);
 		void Rectangle(float x, float y, float heigh, float width, u32 color, bool filled);
-		void move(float x, float y);
-		void move(position amount);
 		void changePosition(float x, float y);
 		void setSize(sizeStruct newSize);
 		void setSize(float height, float width);

@@ -19,16 +19,6 @@ Rectangle::Rectangle(float x, float y, float height, float width, u32 color, boo
 
 }
 
-
-void Rectangle::move(float x, float y){
-	position.x+=x;
-	position.y+=y;
-}
-
-void Rectangle::move(position amount){
-	move(amount.x, amount.y);
-}
-
 void Rectangle::changePosition(float x, float y){
 	position.x = x;
 	position.y = y;

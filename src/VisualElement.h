@@ -15,6 +15,8 @@ class VisualElement{
 		void setPosition(position pos);
 		void setColor(u32 color);
 		void setFilled(bool filled);
+		void move(position amount);
+		void move(float amountX, float amountY);
 
 		position getPosition();
 		u32 getColor();

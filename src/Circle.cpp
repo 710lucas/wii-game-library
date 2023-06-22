@@ -8,11 +8,19 @@ Circle::Circle(float x, float y, f32 radius, u32 color, bool filled){
 	position p;
 	p.x = x;
 	p.y = y;
-	Circle(p,radius, color, filled);
+
+	setPosition(p);
+	setRadius(radius);
+	setColor(color);
+	setFilled(filled);
+
 }
 
 void Circle::setRadius(f32 newRadius){
 	this->radius = newRadius;
+}
+void Circle::draw(){
+	GRRLIB_Circle(getPosition().x, getPosition().y, getRadius(), getColor(), getFilled());
 }
 
 f32 Circle::getRadius(){

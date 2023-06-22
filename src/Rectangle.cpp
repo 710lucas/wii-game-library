@@ -1,20 +1,10 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(){
+Rectangle::Rectangle(){;}
 
-	this.pos = position;
-	this.size = sizeStruct;
-	this.color = 0x00000000;
-	this.filled = true;
+Rectangle::Rectangle(position pos, sizeStruct size, u32 color, bool filled) : VisualElement(pos, color, filled){
 
-}
-
-Rectangle::Rectangle(position pos, sizeStruct size, u32 color, bool filled){
-
-	this.pos = pos;
 	this.size = size;
-	this.color = color;
-	this.filled = filled;
 
 }
 
@@ -44,17 +34,6 @@ void Rectangle::changePosition(float x, float y){
 	position.y = y;
 }
 
-void Rectangle::changePosition(position newPosition){
-	changePosition(newPosition.x, newPosition.y);
-}
-
-void changeColor(u32 color){
-	this.color = color;
-}
-
-void setFilled(bool filled){
-	this.filled = filled;
-}
 
 void setSize(float height, float width){
 	this.size.h = height;
@@ -74,8 +53,5 @@ void increaseSize(sizeStruct amount){
 	increaseSize(amount.h, amount.w);
 }
 
-position getPosition(){return position;}
 sizeStruct getSize(){return size;}
-u32 getColor(){return color;}
-bool getFilled(){return filled;}
 

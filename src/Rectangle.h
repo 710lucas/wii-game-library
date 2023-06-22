@@ -2,12 +2,9 @@
 
 #include "misc.h"
 
-class Rectangle{
+class Rectangle : public VisualElement{
 	private:
-		position pos;
 		sizeStruct size;
-		u32 color;
-		bool filled;
 
 
 	public:
@@ -17,18 +14,12 @@ class Rectangle{
 		void move(float x, float y);
 		void move(position amount);
 		void changePosition(float x, float y);
-		void changePosition(position newPosition);
-		void changeColor(u32 color);
-		void setFilled(bool filled);
 		void setSize(sizeStruct newSize);
 		void setSize(float height, float width);
 		void increaseSize(sizeStruct amount);
 		void increaseSize(float newHeight, float newWidth);
 
-		position getPosition();
 		sizeStruct getSize();
-		u32 getColor();
-		bool getFilled();
 		
 	
 }

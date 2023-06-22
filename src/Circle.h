@@ -1,4 +1,6 @@
 #pragma once
+#include "Rectangle.h"
+#include <grrlib.h>
 
 class Circle : public VisualElement{
 
@@ -14,4 +16,4 @@ class Circle : public VisualElement{
 		f32 radius;
 
 
-}
+};

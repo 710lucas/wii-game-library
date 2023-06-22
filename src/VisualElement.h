@@ -1,5 +1,9 @@
 #pragma once
 
+#include "misc.h"
+#include <grrlib.h>
+
+
 class VisualElement{
 
 	private:
@@ -22,4 +26,4 @@ class VisualElement{
 		u32 getColor();
 		bool getFilled();
 
-}
+};

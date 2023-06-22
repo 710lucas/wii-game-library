@@ -1,47 +1,57 @@
-#include "rectangle.h"
+#include "Rectangle.h"
 
 Rectangle::Rectangle(){;}
 
 Rectangle::Rectangle(position pos, sizeStruct size, u32 color, bool filled) : VisualElement(pos, color, filled){
 
-	this.size = size;
+	this->size = size;
 
 }
 
 Rectangle::Rectangle(float x, float y, float height, float width, u32 color, bool filled){
 
-	this.pos.x = x;
-	this.pos.y = y;
-	this.size.w = width;
-	this.size.h = height;
-	this.color = color;
-	this.filled = filled;
+	position p;
+	p.x = x;
+	p.y = y;
+	setPosition(p);
+
+	size.w = width;
+	size.h = height;
+
+	setColor(color);
+	setFilled(filled);
 
 }
 
 void Rectangle::changePosition(float x, float y){
-	position.x = x;
-	position.y = y;
+	position p;
+	p.x = x;
+	p.y = y;
+	setPosition(p);
 }
 
 
-void setSize(float height, float width){
-	this.size.h = height;
-	this.size.w = width;
+void Rectangle::setSize(float height, float width){
+	size.h = height;
+	size.w = width;
 }
 
-void setSize(sizeStruct newSize){
+void Rectangle::setSize(sizeStruct newSize){
 	setSize(newSize.h, newSize.w);
 }
 
-void increaseSize(float height, float width){
+void Rectangle::increaseSize(float height, float width){
 	size.h += height;
 	size.w += width;
 }
 
-void increaseSize(sizeStruct amount){
+void Rectangle::increaseSize(sizeStruct amount){
 	increaseSize(amount.h, amount.w);
 }
 
-sizeStruct getSize(){return size;}
+void Rectangle::draw(){
+	GRRLIB_Rectangle(getPosition().x, getPosition().y, size.w, size.h, getColor(), getFilled());
+}
+
+sizeStruct Rectangle::getSize(){return size;}
 

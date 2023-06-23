@@ -1,5 +1,9 @@
-main.o: \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/source/main.cpp \
+Sprite.o: \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Sprite.cpp \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Sprite.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Image.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h \
  /opt/devkitpro/portlibs/wii/include/grrlib.h \
  /opt/devkitpro/libogc/include/gccore.h \
  /opt/devkitpro/libogc/include/ogc/dsp.h \
@@ -66,20 +70,11 @@ main.o: \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_pixel.h \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_settings.h \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h \
- /opt/devkitpro/libogc/include/wiiuse/wpad.h \
- /opt/devkitpro/libogc/include/wiiuse/wiiuse.h \
- /opt/devkitpro/libogc/include/bte/bte.h \
- /opt/devkitpro/libogc/include/bte/bd_addr.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Game.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Rectangle.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Sprite.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Image.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/cursor_png.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/fnaf_test_png.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/sprite_png.h
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Rectangle.h
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Sprite.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Image.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h:
 /opt/devkitpro/portlibs/wii/include/grrlib.h:
 /opt/devkitpro/libogc/include/gccore.h:
 /opt/devkitpro/libogc/include/ogc/dsp.h:
@@ -146,17 +141,4 @@ main.o: \
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_pixel.h:
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_settings.h:
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h:
-/opt/devkitpro/libogc/include/wiiuse/wpad.h:
-/opt/devkitpro/libogc/include/wiiuse/wiiuse.h:
-/opt/devkitpro/libogc/include/bte/bte.h:
-/opt/devkitpro/libogc/include/bte/bd_addr.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Game.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Rectangle.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Sprite.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Image.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/cursor_png.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/fnaf_test_png.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/sprite_png.h:

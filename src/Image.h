@@ -19,8 +19,11 @@ class Image : public VisualElement{
         void setScale(float x, float y);
         void setRotation(float rotation);
         void setHitbox(Rectangle hitbox);
+        void move(floatPair amount) override;
+        void move(float x, float y) override;
+        void setPosition(floatPair position) override;
 
-        GRRLIB_texImg getTexture();
+        GRRLIB_texImg * getTexture();
         floatPair getScale();
         float getRotation();
         Rectangle getHitbox();

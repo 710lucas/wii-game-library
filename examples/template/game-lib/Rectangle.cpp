@@ -8,7 +8,7 @@ Rectangle::Rectangle(floatPair pos, sizeStruct size, u32 color, bool filled) : V
 
 }
 
-Rectangle::Rectangle(float x, float y, float height, float width, u32 color, bool filled){
+Rectangle::Rectangle(float x, float y, float width, float height, u32 color, bool filled){
 
 	floatPair p;
 	p.x = x;
@@ -31,16 +31,16 @@ void Rectangle::changePosition(float x, float y){
 }
 
 
-void Rectangle::setSize(float height, float width){
+void Rectangle::setSize(float width, float height){
 	size.h = height;
 	size.w = width;
 }
 
 void Rectangle::setSize(sizeStruct newSize){
-	setSize(newSize.h, newSize.w);
+	setSize(newSize.w, newSize.h);
 }
 
-void Rectangle::increaseSize(float height, float width){
+void Rectangle::increaseSize(float width, float height){
 	size.h += height;
 	size.w += width;
 }

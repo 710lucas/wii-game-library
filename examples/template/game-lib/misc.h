@@ -1,5 +1,7 @@
 #pragma once
 
+#include <grrlib.h>
+
 struct floatPair{
 	float x;
 	float y;
@@ -7,6 +9,11 @@ struct floatPair{
 
 struct sizeStruct{
 
-	float h;
 	float w;
+	float h;
+};
+
+struct u32Pair{
+	u32 x;
+	u32 y;
 };

@@ -12,12 +12,12 @@ class Rectangle : public VisualElement{
 	public:
 		Rectangle();
 		Rectangle(floatPair pos, sizeStruct	size, u32 color, bool filled);
-		Rectangle(float x, float y, float heigh, float width, u32 color, bool filled);
+		Rectangle(float x, float y, float width, float height, u32 color, bool filled);
 		void changePosition(float x, float y);
 		void setSize(sizeStruct newSize);
-		void setSize(float height, float width);
+		void setSize(float width, float height);
 		void increaseSize(sizeStruct amount);
-		void increaseSize(float newHeight, float newWidth);
+		void increaseSize(float newWidth, float newHeight);
 		void draw();
 
 		sizeStruct getSize();

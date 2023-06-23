@@ -16,11 +16,11 @@ class VisualElement{
 		VisualElement();
 		VisualElement(floatPair pos, u32 color, bool filled);
 
-		void setPosition(floatPair pos);
+		virtual void setPosition(floatPair pos);
 		void setColor(u32 color);
 		void setFilled(bool filled);
-		void move(floatPair amount);
-		void move(float amountX, float amountY);
+		virtual void move(floatPair amount);
+		virtual void move(float amountX, float amountY);
 
 		floatPair getPosition();
 		u32 getColor();

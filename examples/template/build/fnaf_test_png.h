@@ -6,7 +6,7 @@
 extern const uint8_t fnaf_test_png[];
 extern const uint8_t fnaf_test_png_end[];
 #if __cplusplus >= 201103L
-static constexpr size_t fnaf_test_png_size=54456;
+static constexpr size_t fnaf_test_png_size=69684;
 #else
-static const size_t fnaf_test_png_size=54456;
+static const size_t fnaf_test_png_size=69684;
 #endif

@@ -3,6 +3,7 @@
 Image::Image(const u8 * image){
 
     texture = GRRLIB_LoadTexture(image);
+    hitbox = Rectangle();
     hitbox.setSize(texture->w, texture->h);
 
 }
@@ -51,7 +52,22 @@ void Image::setHitbox(Rectangle hitbox){
     this->hitbox = hitbox;
 }
 
-GRRLIB_texImg Image::getTexture(){return *texture;}
+void Image::move(floatPair amount){
+    VisualElement::move(amount);
+    hitbox.setPosition(getPosition());
+}
+
+void Image::move(float x, float y){
+    VisualElement::move(x, y);
+    hitbox.setPosition(getPosition());
+}
+
+void Image::setPosition(floatPair position){
+    VisualElement::setPosition(position);
+    hitbox.setPosition(position);
+}
+
+GRRLIB_texImg * Image::getTexture(){return texture;}
 floatPair Image::getScale(){return scale;}
 float Image::getRotation(){return rotation;}
 Rectangle Image::getHitbox(){return hitbox;}

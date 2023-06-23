@@ -111,7 +111,7 @@ clean:
 
 #---------------------------------------------------------------------------------
 run:
-	dolphin-emu -b --exec template.dol
+	flatpak run org.DolphinEmu.dolphin-emu -b --exec template.dol
 	cd ../../
 
 

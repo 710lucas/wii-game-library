@@ -74,7 +74,10 @@ main.o: \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Rectangle.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Image.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/cursor_png.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/fnaf_test_png.h
 /opt/devkitpro/portlibs/wii/include/grrlib.h:
 /opt/devkitpro/libogc/include/gccore.h:
 /opt/devkitpro/libogc/include/ogc/dsp.h:
@@ -150,3 +153,6 @@ main.o: \
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Image.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/cursor_png.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/fnaf_test_png.h:

@@ -35,6 +35,7 @@ void Image::setTexture(GRRLIB_texImg &texture){
 }
 
 void Image::setScale(floatPair scale){
+    hitbox.setSize(hitbox.getSize().w*scale.x, hitbox.getSize().h*scale.y);
     this->scale = scale;
 }
 

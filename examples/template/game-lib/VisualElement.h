@@ -7,22 +7,22 @@
 class VisualElement{
 
 	private:
-		position pos;
+		floatPair pos;
 		u32 color;
 		bool filled;
 
 
 	public:
 		VisualElement();
-		VisualElement(position pos, u32 color, bool filled);
+		VisualElement(floatPair pos, u32 color, bool filled);
 
-		void setPosition(position pos);
+		void setPosition(floatPair pos);
 		void setColor(u32 color);
 		void setFilled(bool filled);
-		void move(position amount);
+		void move(floatPair amount);
 		void move(float amountX, float amountY);
 
-		position getPosition();
+		floatPair getPosition();
 		u32 getColor();
 		bool getFilled();
 

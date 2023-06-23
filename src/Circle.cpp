@@ -1,11 +1,11 @@
 #include "Circle.h"
 
-Circle::Circle(position pos, f32 radius, u32 color, bool filled) : VisualElement(pos, color, filled){
+Circle::Circle(floatPair pos, f32 radius, u32 color, bool filled) : VisualElement(pos, color, filled){
 	this->radius = radius;
 }
 
 Circle::Circle(float x, float y, f32 radius, u32 color, bool filled){
-	position p;
+	floatPair p;
 	p.x = x;
 	p.y = y;
 

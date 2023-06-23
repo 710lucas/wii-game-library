@@ -1,6 +1,6 @@
 #pragma once
 
-struct position{
+struct floatPair{
 	float x;
 	float y;
 };

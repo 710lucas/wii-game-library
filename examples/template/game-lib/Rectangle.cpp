@@ -2,7 +2,7 @@
 
 Rectangle::Rectangle(){;}
 
-Rectangle::Rectangle(position pos, sizeStruct size, u32 color, bool filled) : VisualElement(pos, color, filled){
+Rectangle::Rectangle(floatPair pos, sizeStruct size, u32 color, bool filled) : VisualElement(pos, color, filled){
 
 	this->size = size;
 
@@ -10,7 +10,7 @@ Rectangle::Rectangle(position pos, sizeStruct size, u32 color, bool filled) : Vi
 
 Rectangle::Rectangle(float x, float y, float height, float width, u32 color, bool filled){
 
-	position p;
+	floatPair p;
 	p.x = x;
 	p.y = y;
 	setPosition(p);
@@ -24,7 +24,7 @@ Rectangle::Rectangle(float x, float y, float height, float width, u32 color, boo
 }
 
 void Rectangle::changePosition(float x, float y){
-	position p;
+	floatPair p;
 	p.x = x;
 	p.y = y;
 	setPosition(p);

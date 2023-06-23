@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_H
+#define GAME_H
 
 #include <grrlib.h>
 #include <wiiuse/wpad.h>
@@ -13,7 +14,7 @@ namespace Game{
 		bool wiimoteHold(ubyte button);
 		void render();
 
-		ir_t ir1;
-		u32 wpadDown, wpadHeld;
 
 };
+
+#endif

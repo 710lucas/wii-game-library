@@ -2,6 +2,9 @@
 
 namespace Game{
 
+	ir_t ir1;
+	u32 wpadDown, wpadHeld;
+
 	void init(){
 		GRRLIB_Init();
 		WPAD_Init();

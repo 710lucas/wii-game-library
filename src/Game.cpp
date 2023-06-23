@@ -1,35 +1,39 @@
 #include "Game.h"
 
-void Game::init(){
-	GRRLIB_Init();
-	WPAD_Init();
-	WPAD_SetDataFormat(WPAD_CHAN_0, WPAD_FMT_BTNS_ACC_IR);
-}
+namespace Game{
 
-void Game::updateWiimote(){
-	WPAD_SetVRes(0, 640, 480);
-	WPAD_ScanPads();
-	wpadDown = WPAD_ButtonsDown(0);
-	wpadHeld = WPAD_ButtonsHeld(0);
-	WPAD_IR(WPAD_CHAN_0, &ir1);
-}
+	void init(){
+		GRRLIB_Init();
+		WPAD_Init();
+		WPAD_SetDataFormat(WPAD_CHAN_0, WPAD_FMT_BTNS_ACC_IR);
+	}
 
-bool Game::wiimotePressed(ubyte button){
-	return wpadDown & button;
-}
+	void updateWiimote(){
+		WPAD_SetVRes(0, 640, 480);
+		WPAD_ScanPads();
+		wpadDown = WPAD_ButtonsDown(0);
+		wpadHeld = WPAD_ButtonsHeld(0);
+		WPAD_IR(WPAD_CHAN_0, &ir1);
+	}
 
-bool Game::wiimotePressed(int button){
-	return wpadDown & button;
-}
+	bool wiimotePressed(ubyte button){
+		return wpadDown & button;
+	}
 
-bool Game::wiimoteHold(int button){
-	return wpadHeld & button;
-}
+	bool wiimotePressed(int button){
+		return wpadDown & button;
+	}
 
-bool Game::wiimoteHold(ubyte button){
-	return wpadHeld & button;
-}
+	bool wiimoteHold(int button){
+		return wpadHeld & button;
+	}
 
-void Game::render(){
-	GRRLIB_Render();
+	bool wiimoteHold(ubyte button){
+		return wpadHeld & button;
+	}
+
+	void render(){
+		GRRLIB_Render();
+	}
+
 }

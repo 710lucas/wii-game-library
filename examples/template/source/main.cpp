@@ -19,8 +19,7 @@
 
 int main(int argc, char **argv) {
 
-    Game g;
-    g.init();
+    Game::init();
 
     Rectangle rec(10, 10, 10, 100, 0x1233ffff, true);
     Circle circ(10, 200, 50, 0xff00ffff, true);
@@ -28,19 +27,16 @@ int main(int argc, char **argv) {
     // Loop forever
     while(1) {
 
-        g.updateWiimote();
-
-
-        // If [PLUS] was pressed on the first Wiimote, break out of the loop
+        Game::updateWiimote();
 	
 	rec.draw();
 	circ.draw();
 
         // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;
-        if(g.wiimotePressed(WPAD_BUTTON_HOME)) break;
+        if(Game::wiimotePressed(WPAD_BUTTON_HOME)) break;
 
 
-	g.render();
+	Game::render();
         //GRRLIB_Render();  // Render the frame buffer to the TV
     }
 

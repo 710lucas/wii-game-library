@@ -5,8 +5,6 @@ Image::Image(const u8 * image){
     texture = GRRLIB_LoadTexture(image);
     hitbox = Rectangle();
     hitbox.setSize(texture->w, texture->h);
-    hitbox.setColor(0xff0000a0);
-    hitbox.setFilled(true);
 
 }
 

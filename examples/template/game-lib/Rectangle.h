@@ -20,6 +20,8 @@ class Rectangle : public VisualElement{
 		void increaseSize(float newWidth, float newHeight);
 		void draw();
 
+		bool isColidingWith(Rectangle rectangle);
+
 		sizeStruct getSize();
 		
 	

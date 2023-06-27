@@ -76,6 +76,11 @@ int main(int argc, char **argv) {
         fnaf.move(velocity);
         rec.move(-0.01, 0);
         fnaf.getHitbox().draw();
+        sprite.getHitbox().draw();
+
+        if(fnaf.getHitbox().isColidingWith(sprite.getHitbox())){
+                fnaf.setRotation(fnaf.getRotation()+0.5);
+        }
 
 
         // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;

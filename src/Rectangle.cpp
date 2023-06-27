@@ -53,5 +53,17 @@ void Rectangle::draw(){
 	GRRLIB_Rectangle(getPosition().x, getPosition().y, size.w, size.h, getColor(), getFilled());
 }
 
+bool Rectangle::isColidingWith(Rectangle rectangle){
+
+	floatPair pos = this->getPosition();
+	sizeStruct size = this->getSize();
+	floatPair pos2 = rectangle.getPosition();
+	sizeStruct size2 = rectangle.getSize();
+
+	return ((pos.x+size.w >= pos2.x and pos.x <= pos2.x+size2.w) &&
+	(pos.y+size.h>=pos2.y and pos.y<=pos2.y+size2.h));
+
+}
+
 sizeStruct Rectangle::getSize(){return size;}
 

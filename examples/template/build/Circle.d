@@ -1,8 +1,8 @@
 Circle.o: \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.cpp \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Rectangle.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Circle.cpp \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Circle.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/misc.h \
  /opt/devkitpro/portlibs/wii/include/grrlib.h \
  /opt/devkitpro/libogc/include/gccore.h \
  /opt/devkitpro/libogc/include/ogc/dsp.h \
@@ -69,10 +69,10 @@ Circle.o: \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_pixel.h \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_settings.h \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Circle.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Rectangle.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/misc.h:
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/VisualElement.h
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Circle.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/misc.h:
 /opt/devkitpro/portlibs/wii/include/grrlib.h:
 /opt/devkitpro/libogc/include/gccore.h:
 /opt/devkitpro/libogc/include/ogc/dsp.h:
@@ -139,4 +139,4 @@ Circle.o: \
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_pixel.h:
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_settings.h:
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h:
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/VisualElement.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/VisualElement.h:

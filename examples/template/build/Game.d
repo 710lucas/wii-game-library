@@ -1,6 +1,6 @@
 Game.o: \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Game.cpp \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Game.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/Game.cpp \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/Game.h \
  /opt/devkitpro/portlibs/wii/include/grrlib.h \
  /opt/devkitpro/libogc/include/gccore.h \
  /opt/devkitpro/libogc/include/ogc/dsp.h \
@@ -71,7 +71,7 @@ Game.o: \
  /opt/devkitpro/libogc/include/wiiuse/wiiuse.h \
  /opt/devkitpro/libogc/include/bte/bte.h \
  /opt/devkitpro/libogc/include/bte/bd_addr.h
-/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/./game-lib/Game.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/Game.h:
 /opt/devkitpro/portlibs/wii/include/grrlib.h:
 /opt/devkitpro/libogc/include/gccore.h:
 /opt/devkitpro/libogc/include/ogc/dsp.h:

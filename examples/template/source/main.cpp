@@ -17,6 +17,8 @@
 #include "Circle.h"
 #include "Sprite.h"
 #include "Image.h"
+#include "Roboto_ttf.h"
+#include "Text.h"
 
 #include "cursor_png.h"
 #include "fnaf_test_png.h"
@@ -34,6 +36,7 @@ int main(int argc, char **argv) {
     floatPair velocity{2, 2};
     floatPair spriteVelocity{2, 2};
     Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{30, 50}, floatPair{4, 4}, 0, 0xffffffff);
+    Text text(Roboto_ttf, Roboto_ttf_size, "Test", floatPair{10, 20}, 20, 0xff0000ff);
 
     int wait = 0;
 
@@ -48,6 +51,7 @@ int main(int argc, char **argv) {
         circ.draw();
         cursor.draw();
         fnaf.draw();
+        text.print();
         if(wait > 5){
             wait = 0;
             sprite.nextFrame();

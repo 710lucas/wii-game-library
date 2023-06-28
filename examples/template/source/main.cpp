@@ -12,113 +12,136 @@
 #include <math.h>
 
 
-#include"game-lib.h"
-
+#include "Game.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Sprite.h"
+#include "Image.h"
 #include "Roboto_ttf.h"
+#include "Text.h"
+#include "Tilemap.h"
+
 #include "cursor_png.h"
 #include "fnaf_test_png.h"
+#include "sprite_png.h"
+#include "sprites_png.h"
 
-int lelmain(int argc, char **argv) {
 
-    Game g;
-    g.init();
+int main(int argc, char **argv) {
 
-    Image ponteiro(cursor_png);
-    ponteiro.set_scale(0.25, 0.25);
-    Image fnaf(fnaf_test_png, 10, 20);
-    fnaf.set_scale(0.5, 0.5);
-    GRRLIB_ttfFont *roboto = GRRLIB_LoadTTF(Roboto_ttf, Roboto_ttf_size);
+    Game::init();
 
-    Text texto(Roboto_ttf, Roboto_ttf_size);
+    Rectangle rec(630, 0, 10, 480, 0xff00ffff, true);
+    Circle circ(10, 200, 50, 0xff00ffff, true);
+    Image cursor(cursor_png, floatPair{10,10},floatPair{1, 1},0,0xffffffff);
+    Image fnaf(fnaf_test_png, floatPair{120,120},floatPair{1, 1},0,0xffffffff);
+    floatPair velocity{2, 2};
+    floatPair spriteVelocity{2, 2};
+    Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{30, 50}, floatPair{4, 4}, 0, 0xffffffff);
+    Text text(Roboto_ttf, Roboto_ttf_size, "Test", floatPair{10, 20}, 20, 0xff0000ff);
+    Sprite sprites(sprites_png, u32Pair{8,8}, floatPair{0,0}, floatPair{1,1}, 0, 0xffffffff);
 
-    Rectangle rec(100, 200, 100, 100, 0x00ff00ff, true);
-
-    Rectangle rec2(400, 200, 100, 100, 0xff00ffff, true);
-
-    std::vector<std::vector<int>> teste = {
-        {1, 0, 0},
-        {1, 1, 1},
-        {2, 2, 3}
+    std::vector<std::vector<int>> tiles={
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 10, 10, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 11, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 16, 16, 16, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 16, 16, 16, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 15, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 16, 16, 16, 16, 16, 16, 16, 00, 00, 00},
     };
 
-    Tilemap t(teste);
-    Circle c(100, 200, 30, 0xffaa12ff, true);
 
 
+    Tilemap tilemap(tiles, sprites);
 
-    int velx = 2;
-    int vely = -0;
-    int vel2x = 15;
-    int vel2y = -2;
-    int vel3x = 1;
-    int vel3y = -2;
-    float x = 0;
+//     std::vector<Sprite> sprites;
+//         for(int i = 0; i<3; i++){
+//                 for(int j = 0; j<4; j++){
+//                         Sprite sp(sprite_png, u32Pair{16,16});
+//                         sp.setColor(0xffffffff);
+//                         sp.setScale(floatPair{640/4, 480/3});
+//                         GRRLIB_texImg tex = *sp.getTexture();
+//                         sp.setScale(floatPair{sp.getScale().x/tex.w, sp.getScale().y/tex.h});
+//                         sp.setPosition(floatPair{((float)j*640/3)-tex.w, ((float)i*480/4)-tex.h});
+//                         sp.setFrame(tiles[i][j]-1);
+//                         if(tiles[i][j] != 0)
+//                                 sprites.push_back(sp);
+//                 }
+//         }
+
+
+    int wait = 0;
+
 
     // Loop forever
     while(1) {
 
-        g.update_wiimote();
+        Game::updateWiimote();
+        wait++;
+	
+        rec.draw();
+        circ.draw();
+        cursor.draw();
+        fnaf.draw();
+        text.print();
+        if(wait > 5){
+            wait = 0;
+            sprite.nextFrame();
+        }
+        if(sprite.getFrame()*sprite.getTileSize().x >= sprite.getTexture()->w){
+            sprite.setFrame(0);
+        }
+        sprite.draw(); 
 
+        sprite.move(spriteVelocity);
+        if(sprite.getPosition().x+sprite.getHitbox().getSize().w >= 640 || sprite.getPosition().x<=0){
+                spriteVelocity.x*=-1;
+        }
+        if(sprite.getPosition().y+sprite.getHitbox().getSize().h >= 480 || sprite.getPosition().y <= 0){
+                spriteVelocity.y*=-1;
+        }
 
-        // If [PLUS] was pressed on the first Wiimote, break out of the loop
+        if(fnaf.getPosition().x+fnaf.getHitbox().getSize().w >= 640 || fnaf.getPosition().x<=0){
+                velocity.x*=-1;
+        }
+        if(fnaf.getPosition().y+fnaf.getHitbox().getSize().h >= 480 || fnaf.getPosition().y <= 0){
+                velocity.y*=-1;
+                rec.setSize(10, 200);
+        }
+
+        fnaf.move(velocity);
+        rec.move(-0.01, 0);
+        fnaf.getHitbox().draw();
+        sprite.getHitbox().draw();
+
+        for(Sprite sp : tilemap.getSprites()){
+                sp.draw();
+        }
+
+        if(fnaf.getHitbox().isColidingWith(sprite.getHitbox())){
+                fnaf.setRotation(fnaf.getRotation()+0.5);
+        }
+
+        sprites.draw();
 
         // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;
-        if(g.wiimote_pressed(WPAD_BUTTON_HOME)) break;
-
-        rec.render();
-        rec2.render();
-        x+=0.1;
-        c.move(cos(pow(x,2)/sin(x))*10, cos(x)*2);
-
-        if(vely > 0){
-            texto.set_font_size(texto.get_font_size()+1);
-        }
-
-        else if(vely<0 and texto.get_font_size()>0 and rec.get_w() > 0){
-            texto.set_font_size(texto.get_font_size()-1);
-        }
-
-        texto.print("ROTMG", rec.get_pos().x, rec.get_pos().y);
+        if(Game::wiimotePressed(WPAD_BUTTON_HOME)) break;
 
 
-        if(rec.get_pos().x >= 640-rec.get_w() || rec.get_pos().x<0  or rec.is_colliding(rec2)){
-            velx *= -1;
-        }
-        if(rec.get_pos().y>=480-rec.get_h() || rec.get_pos().y<0 or rec.is_colliding(rec2)){
-            vely *= -1;
-        }
-        if(rec2.get_pos().x >= 640-rec2.get_w() || rec2.get_pos().x<0  or rec2.is_colliding(rec)){
-            vel2x *= -1;
-        }
-        if(rec2.get_pos().y>=480-rec2.get_h() || rec2.get_pos().y<0 or rec2.is_colliding(rec)){
-            vel2y *= -1;
-        }
-
-        if(fnaf.get_rec().get_pos().y>=480-fnaf.get_rec().get_h() || fnaf.get_rec().get_pos().y<0 or fnaf.get_rec().is_colliding(rec)or fnaf.get_rec().is_colliding(rec2)){
-            vel3y *= -1;
-        }
-        if(fnaf.get_rec().get_pos().x>=640-fnaf.get_rec().get_w() || fnaf.get_rec().get_pos().x<0 or fnaf.get_rec().is_colliding(rec)or fnaf.get_rec().is_colliding(rec2)){
-            vel3x *= -1;
-        }
-        if(rec.clicked(g)){
-            rec.set_color(0xff0000ff);
-        }
-        else
-            rec.set_color(0x0000ffff);
-
-        if(rec.is_colliding(rec2))
-            rec2.set_color(0x00ffffff);
-        else 
-            rec2.set_color(0xff00ffff);
-
-        rec.move(velx, vely);
-        rec2.move(vel2x, vel2y);
-        ponteiro.render(g.ir1.x, g.ir1.y);
-        fnaf.move(vel3x, vel3y);
-        fnaf.render();
-        c.render();
-
-        GRRLIB_Render();  // Render the frame buffer to the TV
+	Game::render();
+        //GRRLIB_Render();  // Render the frame buffer to the TV
     }
 
     GRRLIB_Exit(); // Be a good boy, clear the memory allocated by GRRLIB

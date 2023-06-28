@@ -1,5 +1,11 @@
 # Introduction
 
+### tilemap creator
+
+If you want to create a tilemap easily, you can use this [link](https://luxs710.github.io/wii-game-library/public/) (tutorial coming soon™️)
+
+# Readme outdated not everything that's below this warning is working
+
 Hi! This is still an idea, but I'll try to make like a library that can be used with GRRLIB to make the process of creating games for the nintendo wii easier
 
 As I said, it's just an idea, don't expect it to be perfect of even to be finished

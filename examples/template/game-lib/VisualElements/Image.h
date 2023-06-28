@@ -23,6 +23,7 @@ class Image : public VisualElement{
         void move(float x, float y) override;
         void setPosition(floatPair position) override;
 
+
         GRRLIB_texImg * getTexture();
         floatPair getScale();
         float getRotation();

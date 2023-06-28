@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editable Grid</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gridCanvas" width="640" height="480"></canvas>
+    <textarea name="" id="gridsize" cols="30" rows="10" value="10"></textarea>
+    <textarea name="" id="currentSprite" cols="30" rows="10" value="10" placeholder="type the sprite number you want to use: "></textarea>
+    <textarea name="" id="vectorCode" cols="30" rows="10" value="10" placeholder="Here it's where the vector code will appear once you click the button to generate it, you can copy the code that'll be generated and put it in your c++ code"></textarea>
+    <button type="submit" onclick="changeGridSize()">Change grid size</button>
+    <button type="submit" onclick="createVector()">Create vector code</button>
+    <div id="sprites">
+
+
+        <button type="submit" onclick="addNewSprite()">+ Add new sprite</button>
+
+        <div class="sprite-container" id="sprite-1">
+            <div style="height: 20px; width: 20px; background-color: black;" id="sprite-1-color"></div>
+            <p>Sprite number 1</p>
+        </div>
+
+
+    </div>
+</body>
+
+<script>
+
+    function createVector(){
+
+        vector = "std::vector<std::vector<int>> vector = {"
+
+        for(var i = 0; i<rows; i++){
+            vector+="\n{"
+            for(var j = 0; j<columns; j++){
+                vector+=gridData[i][j]
+                if(j!=columns-1)
+                    vector+=","
+            }
+            vector+="}"
+            if(i!=rows-1)
+                vector+=","
+        }
+
+        vector+="\n};"
+
+        document.getElementById("vectorCode").value=vector
+
+    }
+
+
+    // Get the canvas element and its 2D rendering context
+const canvas = document.getElementById('gridCanvas');
+const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+function addNewSprite(){
+    spritesDiv = document.getElementById("sprites")
+    div = document.createElement("div")
+    div.id="sprite-"+spritesDiv.childElementCount
+    text = document.createElement("p")
+    text.innerText = "Sprite number "+spritesDiv.childElementCount
+    color = document.createElement("div")
+    color.style.height = "20px"
+    color.style.width = "20px"
+    color.id="sprite-"+spritesDiv.childElementCount+"-color"
+    colorCode = "#"
+    letters='0123456789ABCDEF'
+    for(var i = 0; i<6; i++){
+        colorCode+=letters[Math.floor(Math.random()*16)] 
+    }
+    color.style.backgroundColor=colorCode;
+    div.appendChild(color)
+    div.appendChild(text)
+    spritesDiv.appendChild(div)
+}
+
+
+function changeGridSize(){
+    newSize = parseInt(document.getElementById("gridsize").value)
+    gridSize = newSize;  // Size of each grid cell
+    rows = canvas.height / gridSize;
+    columns = canvas.width / gridSize;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    console.log("gridsize: "+gridSize)
+    console.log("gridsize: "+newSize)
+
+    // Create a 2D array to represent the grid data
+    gridData = [];
+    for (let row = 0; row < rows; row++) {
+        gridData[row] = [];
+        for (let col = 0; col < columns; col++) {
+            gridData[row][col] = 0; // Initialize with default values
+        }
+    }
+
+    drawGrid()
+
+}
+
+// Define grid properties
+gridSize = 10;  // Size of each grid cell
+rows = canvas.height / gridSize;
+columns = canvas.width / gridSize;
+
+// Create a 2D array to represent the grid data
+gridData = [];
+for (let row = 0; row < rows; row++) {
+    gridData[row] = [];
+    for (let col = 0; col < columns; col++) {
+        gridData[row][col] = 0; // Initialize with default values
+    }
+}
+
+// Function to draw the grid on the canvas
+function drawGrid() {
+
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < columns; col++) {
+            // Calculate cell position
+            const x = col * gridSize;
+            const y = row * gridSize;
+
+            // Draw the cell
+            ctx.beginPath();
+            ctx.rect(x, y, gridSize, gridSize);
+            if(gridData[row][col] == 0){
+                ctx.fillStyle = 'white'
+            }
+            else{
+                ctx.fillStyle = document.getElementById("sprite-"+gridData[row][col]+"-color").style.backgroundColor
+                console.log("UEPAAA:"+document.getElementById("sprite-"+gridData[row][col]+"-color").style.backgroundColor)
+            }
+            ctx.fill();
+            ctx.stroke();
+        }
+    }
+
+}
+
+// Function to handle mouse click events
+function handleClick(event) {
+    rows = canvas.height / gridSize;
+    columns = canvas.width / gridSize;
+
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+    // Calculate the clicked cell coordinates
+    const col = Math.floor(mouseX / gridSize);
+    const row = Math.floor(mouseY / gridSize);
+
+    console.log(col)
+    console.log(row)
+    console.log(gridSize)
+
+    // Toggle the cell value
+    if(gridData[row][col] == 0){
+        gridData[row][col] = parseInt(document.getElementById("currentSprite").value)
+        console.log("USUSA:"+gridData[row][col])
+    }
+    else{
+        gridData[row][col] = 0
+    }
+
+
+    // Redraw the grid
+    drawGrid();
+}
+
+// Add event listener for mouse clicks on the canvas
+canvas.addEventListener('click', handleClick);
+
+// Initial grid drawing
+drawGrid();
+
+
+</script>
+
+</html>

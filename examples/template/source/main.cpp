@@ -24,6 +24,7 @@
 #include "cursor_png.h"
 #include "fnaf_test_png.h"
 #include "sprite_png.h"
+#include "sprites_png.h"
 
 
 int main(int argc, char **argv) {
@@ -38,27 +39,47 @@ int main(int argc, char **argv) {
     floatPair spriteVelocity{2, 2};
     Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{30, 50}, floatPair{4, 4}, 0, 0xffffffff);
     Text text(Roboto_ttf, Roboto_ttf_size, "Test", floatPair{10, 20}, 20, 0xff0000ff);
+    Sprite sprites(sprites_png, u32Pair{8,8}, floatPair{0,0}, floatPair{1,1}, 0, 0xffffffff);
 
-    int tiles[3][4]={
-        {00, 01, 00, 02},
-        {00, 01, 00, 03},
-        {00, 01, 01, 03}
+    std::vector<std::vector<int>> tiles={
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 10, 10, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 11, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 16, 16, 16, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 16, 16, 16, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 00, 00, 15, 00, 00, 00, 00, 00, 00, 00},
+        {00, 00, 00, 00, 16, 16, 16, 16, 16, 16, 16, 00, 00, 00},
     };
 
-    std::vector<Sprite> sprites;
-        for(int i = 0; i<3; i++){
-                for(int j = 0; j<4; j++){
-                        Sprite sp(sprite_png, u32Pair{16,16});
-                        sp.setColor(0xffffffff);
-                        sp.setScale(floatPair{640/3, 480/4});
-                        GRRLIB_texImg tex = *sp.getTexture();
-                        sp.setScale(floatPair{sp.getScale().x/tex.w, sp.getScale().y/tex.h});
-                        sp.setPosition(floatPair{((float)j*640/3)-tex.w, ((float)i*480/4)-tex.h});
-                        sp.setFrame(tiles[i][j]-1);
-                        if(tiles[i][j] != 0)
-                                sprites.push_back(sp);
-                }
-        }
+
+
+    Tilemap tilemap(tiles, sprites);
+
+//     std::vector<Sprite> sprites;
+//         for(int i = 0; i<3; i++){
+//                 for(int j = 0; j<4; j++){
+//                         Sprite sp(sprite_png, u32Pair{16,16});
+//                         sp.setColor(0xffffffff);
+//                         sp.setScale(floatPair{640/4, 480/3});
+//                         GRRLIB_texImg tex = *sp.getTexture();
+//                         sp.setScale(floatPair{sp.getScale().x/tex.w, sp.getScale().y/tex.h});
+//                         sp.setPosition(floatPair{((float)j*640/3)-tex.w, ((float)i*480/4)-tex.h});
+//                         sp.setFrame(tiles[i][j]-1);
+//                         if(tiles[i][j] != 0)
+//                                 sprites.push_back(sp);
+//                 }
+//         }
 
 
     int wait = 0;
@@ -105,7 +126,7 @@ int main(int argc, char **argv) {
         fnaf.getHitbox().draw();
         sprite.getHitbox().draw();
 
-        for(Sprite sp : sprites){
+        for(Sprite sp : tilemap.getSprites()){
                 sp.draw();
         }
 
@@ -113,6 +134,7 @@ int main(int argc, char **argv) {
                 fnaf.setRotation(fnaf.getRotation()+0.5);
         }
 
+        sprites.draw();
 
         // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;
         if(Game::wiimotePressed(WPAD_BUTTON_HOME)) break;

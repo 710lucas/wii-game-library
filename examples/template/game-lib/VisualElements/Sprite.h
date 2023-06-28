@@ -6,6 +6,7 @@ class Sprite : public Image{
 
 
     public:
+        Sprite(Sprite* sp);
         Sprite(const u8 * image);
         Sprite(const u8 * image, u32 tileWidth, u32 tileHeight);
         Sprite(const u8 * image, u32Pair tileSize);

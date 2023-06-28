@@ -20,18 +20,21 @@
         adicionar readFile
 */
 
+
 class Tilemap{
 
     public:
-        Tilemap(int* tilemap, Sprite sprite, intPair dimensions);
+        Tilemap(std::vector<std::vector<int>> tilemap, Sprite sprite);
         void draw();
         void setSprite(Sprite sprite);
-        void setTilemap(int* tilemap, intPair dimensions);
+        void setTilemap(std::vector<std::vector<int>> tilemap);
         void setScale(intPair scale);
         
-        std::vector<std::vector<int>> getTilemap();
+        int** getTilemap();
         Sprite getSprite();
         intPair getScale();
+        std::vector<Sprite> getSprites();
+        void initTilemap();
 
 
 
@@ -39,7 +42,7 @@ class Tilemap{
         std::vector<std::vector<int>> tilemap;
         Sprite sprite;
         intPair scale;
+        std::vector<Sprite> sprites;
 
-        void initTileMap();
 
 };

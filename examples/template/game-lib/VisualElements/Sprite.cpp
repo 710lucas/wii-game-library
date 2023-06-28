@@ -1,6 +1,15 @@
 #include "Sprite.h"
 
 
+Sprite::Sprite(Sprite* sp) : Image(NULL){
+    Sprite spr = *sp;
+    GRRLIB_texImg *tex = spr.getTexture();
+    setTexture(*tex);
+    setTileSize(spr.getTileSize());
+    setPosition(spr.getPosition());
+    GRRLIB_InitTileSet(getTexture(), tileSize.x, tileSize.y, 0);
+}
+
 Sprite::Sprite(const u8 * image) : Image(image){
     GRRLIB_InitTileSet(getTexture(), tileSize.x, tileSize.y, 0);
     Rectangle r = getHitbox();

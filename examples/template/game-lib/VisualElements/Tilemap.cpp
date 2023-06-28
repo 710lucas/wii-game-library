@@ -1,30 +1,15 @@
 #include "Tilemap.h"
-Tilemap::Tilemap(int* tilemap, Sprite sprite, intPair dimensions):sprite(NULL){
-    int size = sizeof(tilemap)/sizeof(tilemap[0]);
-    if(size > 640*480)
-        return ;
+#include <cstdio>
+Tilemap::Tilemap(std::vector<std::vector<int>> tilemap, Sprite sprite):sprite(sprite){
 
-
-    setScale(intPair{640/dimensions.x, 480/dimensions.y});
-    setTilemap(tilemap, dimensions);
+    setTilemap(tilemap);
     this->sprite = sprite;
-
+    initTilemap();
 
 }
 
-void Tilemap::setTilemap(int* tilemap, intPair dimensions){
-    this->tilemap = std::vector<std::vector<int>>(dimensions.y, std::vector<int>(dimensions.x));
-     
-    int size = sizeof(tilemap)/sizeof(tilemap[0]);
-
-    int j = 0;
-
-    for(int i = 0; i<size; i++){
-        if(i%4 == 0)
-            j++;
-        this->tilemap[i-(4*j)][j] = tilemap[i];
-    }
-
+void Tilemap::setTilemap(std::vector<std::vector<int>> tilemap){
+    this->tilemap = tilemap;
 }
 
 void Tilemap::setSprite(Sprite sprite){
@@ -35,19 +20,30 @@ void Tilemap::setScale(intPair scale){
     this->scale = scale;
 }
 
-void Tilemap::draw(){
-    std::vector<Sprite> sprites;
-    for(int i = 0; i<this->tilemap.size(); i++){
-        for(int j = 0; j<this->tilemap[i].size(); j++){
-            if(j != 0){
-                sprite.setFrame(j-1);
-                sprite.setPosition(floatPair{static_cast<float>(i*scale.x), static_cast<float>(j*scale.y)});
-                sprite.setScale(floatPair{static_cast<float>(scale.x), static_cast<float>(scale.y)});
-                sprites.push_back(sprite);
-            }
-
+void Tilemap::initTilemap(){
+    intPair dimensions = {tilemap[0].size(), tilemap.size()};
+    for(int i = 0; i<dimensions.y; i++){
+        for(int j = 0; j<dimensions.x; j++){
+            if(tilemap[i][j] == 0)
+                continue;
+            
+            Sprite sp(sprite);
+            GRRLIB_texImg texture = *sp.getTexture();
+            floatPair relativeScale = {640/dimensions.x, 480/dimensions.y};
+            floatPair scale = {relativeScale.x/sprite.getTileSize().x, relativeScale.y/sprite.getTileSize().y};
+            floatPair position = {j*relativeScale.x, i*relativeScale.y};
+            sp.setScale(scale);
+            sp.setColor(0xffffffff);
+            sp.setPosition(position);
+            sp.setFrame(tilemap[i][j]-1);
+            sprites.push_back(sp);
         }
     }
+}
+
+void Tilemap::draw(){
     for(Sprite sp : sprites)
         sp.draw();
 }
+
+std::vector<Sprite> Tilemap::getSprites(){return sprites;}

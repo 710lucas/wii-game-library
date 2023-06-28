@@ -67,6 +67,8 @@ void Image::setPosition(floatPair position){
     hitbox.setPosition(position);
 }
 
+
+
 GRRLIB_texImg * Image::getTexture(){return texture;}
 floatPair Image::getScale(){return scale;}
 float Image::getRotation(){return rotation;}

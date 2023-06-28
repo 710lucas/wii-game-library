@@ -79,6 +79,7 @@ main.o: \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Image.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/Roboto_ttf.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/UI/Text.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Tilemap.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/cursor_png.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/fnaf_test_png.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/sprite_png.h
@@ -161,6 +162,7 @@ main.o: \
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Image.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/Roboto_ttf.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/UI/Text.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Tilemap.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/cursor_png.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/fnaf_test_png.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/build/sprite_png.h:

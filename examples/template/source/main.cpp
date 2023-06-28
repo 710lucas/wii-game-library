@@ -19,6 +19,7 @@
 #include "Image.h"
 #include "Roboto_ttf.h"
 #include "Text.h"
+#include "Tilemap.h"
 
 #include "cursor_png.h"
 #include "fnaf_test_png.h"
@@ -37,6 +38,28 @@ int main(int argc, char **argv) {
     floatPair spriteVelocity{2, 2};
     Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{30, 50}, floatPair{4, 4}, 0, 0xffffffff);
     Text text(Roboto_ttf, Roboto_ttf_size, "Test", floatPair{10, 20}, 20, 0xff0000ff);
+
+    int tiles[3][4]={
+        {00, 01, 00, 02},
+        {00, 01, 00, 03},
+        {00, 01, 01, 03}
+    };
+
+    std::vector<Sprite> sprites;
+        for(int i = 0; i<3; i++){
+                for(int j = 0; j<4; j++){
+                        Sprite sp(sprite_png, u32Pair{16,16});
+                        sp.setColor(0xffffffff);
+                        sp.setScale(floatPair{640/3, 480/4});
+                        GRRLIB_texImg tex = *sp.getTexture();
+                        sp.setScale(floatPair{sp.getScale().x/tex.w, sp.getScale().y/tex.h});
+                        sp.setPosition(floatPair{((float)j*640/3)-tex.w, ((float)i*480/4)-tex.h});
+                        sp.setFrame(tiles[i][j]-1);
+                        if(tiles[i][j] != 0)
+                                sprites.push_back(sp);
+                }
+        }
+
 
     int wait = 0;
 
@@ -81,6 +104,10 @@ int main(int argc, char **argv) {
         rec.move(-0.01, 0);
         fnaf.getHitbox().draw();
         sprite.getHitbox().draw();
+
+        for(Sprite sp : sprites){
+                sp.draw();
+        }
 
         if(fnaf.getHitbox().isColidingWith(sprite.getHitbox())){
                 fnaf.setRotation(fnaf.getRotation()+0.5);

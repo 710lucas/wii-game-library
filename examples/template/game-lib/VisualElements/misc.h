@@ -17,3 +17,7 @@ struct u32Pair{
 	u32 x;
 	u32 y;
 };
+
+struct intPair{
+	int x, y;
+};

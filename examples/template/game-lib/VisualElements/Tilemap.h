@@ -30,18 +30,22 @@ class Tilemap{
         void setTilemap(std::vector<std::vector<int>> tilemap);
         void setScale(intPair scale);
         
-        int** getTilemap();
+        std::vector<std::vector<int>> getTilemap();
         Sprite getSprite();
         intPair getScale();
         std::vector<Sprite> getSprites();
         void initTilemap();
+
+        bool isColiding(Rectangle rectangle);
+        bool isColiding(Image image);
+        bool isColiding(Sprite sprite);
 
 
 
     private: 
         std::vector<std::vector<int>> tilemap;
         Sprite sprite;
-        intPair scale;
+        intPair scale; //provavelmente inutil
         std::vector<Sprite> sprites;
 
 

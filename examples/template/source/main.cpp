@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
     Image fnaf(fnaf_test_png, floatPair{120,120},floatPair{1, 1},0,0xffffffff);
     floatPair velocity{2, 2};
     floatPair spriteVelocity{2, 2};
-    Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{30, 50}, floatPair{4, 4}, 0, 0xffffffff);
+    Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{100, 50}, floatPair{4, 4}, 0, 0xffffffff);
     Text text(Roboto_ttf, Roboto_ttf_size, "Test", floatPair{10, 20}, 20, 0xff0000ff);
     Sprite sprites(sprites_png, u32Pair{8,8}, floatPair{0,0}, floatPair{1,1}, 0, 0xffffffff);
 
@@ -129,6 +129,11 @@ std::vector<std::vector<int>> tiles = {
         if(fnaf.getPosition().y+fnaf.getHitbox().getSize().h >= 480 || fnaf.getPosition().y <= 0){
                 velocity.y*=-1;
                 rec.setSize(10, 200);
+        }
+
+        if(tilemap.isColiding(sprite)){
+                spriteVelocity.x *= -1;
+                spriteVelocity.y *= -1;
         }
 
         fnaf.move(velocity);

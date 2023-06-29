@@ -46,4 +46,27 @@ void Tilemap::draw(){
         sp.draw();
 }
 
+
+bool Tilemap::isColiding(Rectangle rectangle){
+    for(Sprite sp : sprites) {
+        if(sp.getHitbox().isColidingWith(rectangle))
+            return true;
+    }
+    return false;
+}
+
+
+bool Tilemap::isColiding(Image image){
+    return isColiding(image.getHitbox());
+}
+
+bool Tilemap::isColiding(Sprite sprite){
+    return isColiding(sprite.getHitbox());
+}
+
+
+std::vector<std::vector<int>> Tilemap::getTilemap(){return tilemap;}
+Sprite Tilemap::getSprite(){return sprite;}
+intPair Tilemap::getScale(){return scale;}
 std::vector<Sprite> Tilemap::getSprites(){return sprites;}
+

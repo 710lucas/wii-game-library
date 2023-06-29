@@ -42,7 +42,7 @@ void Tilemap::initTilemap(){
 }
 
 void Tilemap::draw(){
-    for(Sprite sp : sprites)
+    for(Sprite sp : this->getSprites())
         sp.draw();
 }
 

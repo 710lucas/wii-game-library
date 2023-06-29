@@ -141,15 +141,12 @@ std::vector<std::vector<int>> tiles = {
         fnaf.getHitbox().draw();
         sprite.getHitbox().draw();
 
-        for(Sprite sp : tilemap.getSprites()){
-                sp.draw();
-        }
-
         if(fnaf.getHitbox().isColidingWith(sprite.getHitbox())){
                 fnaf.setRotation(fnaf.getRotation()+0.5);
         }
 
         sprites.draw();
+        tilemap.draw();
 
         // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;
         if(Game::wiimotePressed(WPAD_BUTTON_HOME)) break;

@@ -23,6 +23,8 @@ class Image : public VisualElement{
         void move(float x, float y) override;
         void setPosition(floatPair position) override;
 
+        Collision moveAndCollide(Rectangle collisionRectangle, float amountX, float amountY);
+
 
         GRRLIB_texImg * getTexture();
         floatPair getScale();

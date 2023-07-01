@@ -73,6 +73,7 @@ main.o: \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/Game.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/misc.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Collision.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/VisualElement.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Circle.h \
  /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Sprite.h \
@@ -157,6 +158,7 @@ main.o: \
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/Game.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/misc.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Collision.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/VisualElement.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Circle.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Sprite.h:

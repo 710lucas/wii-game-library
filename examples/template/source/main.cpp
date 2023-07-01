@@ -36,10 +36,10 @@ int main(int argc, char **argv) {
     Image cursor(cursor_png, floatPair{10,10},floatPair{1, 1},0,0xffffffff);
     Image fnaf(fnaf_test_png, floatPair{120,120},floatPair{1, 1},0,0xffffffff);
     floatPair velocity{2, 2};
-    floatPair spriteVelocity{2, 2};
-    Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{100, 50}, floatPair{4, 4}, 0, 0xffffffff);
+    Sprite sprite(sprite_png, u32Pair{16, 16}, floatPair{10, 0}, floatPair{4, 4}, 0, 0xffffffff);
     Text text(Roboto_ttf, Roboto_ttf_size, "Test", floatPair{10, 20}, 20, 0xff0000ff);
     Sprite sprites(sprites_png, u32Pair{8,8}, floatPair{0,0}, floatPair{1,1}, 0, 0xffffffff);
+    fnaf.getHitbox().setColor(0xff00ffff);
 
 std::vector<std::vector<int>> tiles = {
 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -101,11 +101,6 @@ std::vector<std::vector<int>> tiles = {
         Game::updateWiimote();
         wait++;
 	
-        rec.draw();
-        circ.draw();
-        cursor.draw();
-        fnaf.draw();
-        text.print();
         if(wait > 5){
             wait = 0;
             sprite.nextFrame();
@@ -115,31 +110,54 @@ std::vector<std::vector<int>> tiles = {
         }
         sprite.draw(); 
 
-        sprite.move(spriteVelocity);
-        if(sprite.getPosition().x+sprite.getHitbox().getSize().w >= 640 || sprite.getPosition().x<=0){
-                spriteVelocity.x*=-1;
+
+        if(Game::wiimoteHold(WIIMOTE_BUTTON_DOWN)){
+                Collision c = sprite.moveAndCollide(fnaf.getHitbox(), 0, 10);
+                if(c.isColiding()){
+                        if(c.isHorizontal())
+                                text.setText("Horizontal");
+                        else if(c.isVertical())
+                                text.setText("Vertical");
+                }
         }
-        if(sprite.getPosition().y+sprite.getHitbox().getSize().h >= 480 || sprite.getPosition().y <= 0){
-                spriteVelocity.y*=-1;
+        if(Game::wiimoteHold(WIIMOTE_BUTTON_UP)){
+                Collision c = sprite.moveAndCollide(fnaf.getHitbox(), 0, -10);
+                if(c.isColiding()){
+                        if(c.isHorizontal())
+                                text.setText("Horizontal");
+                        else if(c.isVertical())
+                                text.setText("Vertical");
+                }
         }
+        if(Game::wiimoteHold(WIIMOTE_BUTTON_LEFT)){
+                Collision c = sprite.moveAndCollide(fnaf.getHitbox(), -10, 0);
+                if(c.isColiding()){
+                        if(c.isHorizontal())
+                                text.setText("Horizontal");
+                        else if(c.isVertical())
+                                text.setText("Vertical");
+                }
+        }
+        if(Game::wiimoteHold(WIIMOTE_BUTTON_RIGHT)){
+                Collision c = sprite.moveAndCollide(fnaf.getHitbox(), 10, 0);
+                if(c.isColiding()){
+                        if(c.isHorizontal())
+                                text.setText("Horizontal");
+                        else if(c.isVertical())
+                                text.setText("Vertical");
+                }
+        }
+
 
         if(fnaf.getPosition().x+fnaf.getHitbox().getSize().w >= 640 || fnaf.getPosition().x<=0){
                 velocity.x*=-1;
         }
         if(fnaf.getPosition().y+fnaf.getHitbox().getSize().h >= 480 || fnaf.getPosition().y <= 0){
                 velocity.y*=-1;
-                rec.setSize(10, 200);
         }
 
-        if(tilemap.isColiding(sprite)){
-                spriteVelocity.x *= -1;
-                spriteVelocity.y *= -1;
-        }
 
-        fnaf.move(velocity);
-        rec.move(-0.01, 0);
-        fnaf.getHitbox().draw();
-        sprite.getHitbox().draw();
+        // fnaf.move(velocity);
 
         if(fnaf.getHitbox().isColidingWith(sprite.getHitbox())){
                 fnaf.setRotation(fnaf.getRotation()+0.5);
@@ -147,6 +165,13 @@ std::vector<std::vector<int>> tiles = {
 
         sprites.draw();
         tilemap.draw();
+        fnaf.getHitbox().draw();
+        sprite.getHitbox().draw();
+        text.print();
+        rec.draw();
+        circ.draw();
+        cursor.draw();
+        fnaf.draw();
 
         // if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME)  break;
         if(Game::wiimotePressed(WPAD_BUTTON_HOME)) break;

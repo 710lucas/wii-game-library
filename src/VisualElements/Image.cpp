@@ -67,6 +67,17 @@ void Image::setPosition(floatPair position){
     hitbox.setPosition(position);
 }
 
+Collision Image::moveAndCollide(Rectangle collisionRec, float amountX, float amountY){
+        Collision col = hitbox.moveAndCollide(collisionRec, amountX, amountY);
+        if(col.isHorizontal())
+            move(col.getDistance(), amountY);
+        else if(col.isVertical())
+            move(amountX, col.getDistance());
+        else
+            move(amountX, amountY);
+        
+        return col;
+}
 
 
 GRRLIB_texImg * Image::getTexture(){return texture;}

@@ -1,5 +1,6 @@
 #include "Rectangle.h"
 
+
 Rectangle::Rectangle(){;}
 
 Rectangle::Rectangle(floatPair pos, sizeStruct size, u32 color, bool filled) : VisualElement(pos, color, filled){
@@ -65,5 +66,41 @@ bool Rectangle::isColidingWith(Rectangle rectangle){
 
 }
 
+Collision Rectangle::moveAndCollide(Rectangle collisionRect, float amountX, float amountY){
+
+	Collision col(-1);
+
+	int positive = amountX>0 ? 1 : -1;
+
+	this->move(amountX, 0);
+	if(isColidingWith(collisionRect) && amountX != 0){
+		this->move(-amountX, 0);
+		for(int i = 0; i<=amountX*positive; i++){
+			this->move(i*positive, 0);
+			if(isColidingWith(collisionRect))
+				return Collision(1, i*positive);
+		}
+	}
+
+	this->move(0, amountY);
+
+	positive = amountY>0 ? 1 : -1;
+
+	if(isColidingWith(collisionRect) && amountY != 0){
+		this->move(0, -amountY);
+		for(int i = 0; i<=amountY*positive; i++){
+			this->move(0, i*positive);
+			if(isColidingWith(collisionRect))
+				return Collision(0, i*positive);
+		}
+	}
+
+	
+
+	return col;
+}
+
 sizeStruct Rectangle::getSize(){return size;}
+
+Collision Rectangle::getCollision(){return collision;}
 

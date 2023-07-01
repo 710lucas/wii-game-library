@@ -69,7 +69,8 @@ Image.o: \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_pixel.h \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_settings.h \
  /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h \
- /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h \
+ /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Collision.h
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Image.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/VisualElement.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/misc.h:
@@ -140,3 +141,4 @@ Image.o: \
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_settings.h:
 /opt/devkitpro/portlibs/wii/include/grrlib/GRRLIB_texSetup.h:
 /home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Rectangle.h:
+/home/lux/Documentos/Programação/C++/wii-game-library/examples/template/game-lib/VisualElements/Collision.h:

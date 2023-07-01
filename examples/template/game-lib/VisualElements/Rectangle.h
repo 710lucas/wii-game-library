@@ -2,11 +2,13 @@
 
 #include "misc.h"
 #include <grrlib.h>
+#include "Collision.h"
 #include "VisualElement.h"
 
 class Rectangle : public VisualElement{
 	private:
 		sizeStruct size;
+		Collision collision;
 
 
 	public:
@@ -20,9 +22,13 @@ class Rectangle : public VisualElement{
 		void increaseSize(float newWidth, float newHeight);
 		void draw();
 
+		Collision moveAndCollide(Rectangle collisionRect, float amountX, float amountY);
+
+
 		bool isColidingWith(Rectangle rectangle);
 
 		sizeStruct getSize();
+		Collision getCollision();
 		
 	
 };
